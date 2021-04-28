@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="persistance_jpa" transaction-type="RESOURCE_LOCAL">
+        <!-- Persistence provider -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Entity classes -->
+        <class>com.mkemiche.models.Employee</class>
+        <class>com.mkemiche.models.TeachingStaff</class>
+        <class>com.mkemiche.models.NonTeachingStaff</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:mariadb://localhost:3306/persistence" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+            <property name="javax.persistence.lock.timeout" value="100"/>
+            <property name="javax.persistence.query.timeout" value="100"/>
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="create" /> -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB103Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.generate_statistics" value="true" />
+            <property name="current_session_context_class" value="thread"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
